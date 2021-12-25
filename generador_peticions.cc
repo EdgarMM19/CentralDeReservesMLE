@@ -5,12 +5,14 @@
 using namespace std;
 
  
-int get_random_int(){
+int get_random_nat(){
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     mt19937 gen(seed);
     uniform_int_distribution<std::mt19937::result_type> dist;
  
-    return dist(gen);
+    int n = dist(gen);
+    if (n < 0) return -n;
+    return n;
 }
 
 
@@ -27,9 +29,9 @@ struct booking{
   }
 
   booking(){
-    np = get_random_int()%4 + 1;
-    arrival = get_random_int()%29 + 1;
-    exit = get_random_int()%(30-arrival) + arrival + 1;
+    np = get_random_nat()%4 + 1;
+    arrival = get_random_nat()%29 + 1;
+    exit = get_random_nat()%(30-arrival) + arrival + 1;
   }
 };
 
@@ -41,7 +43,7 @@ struct room{
   }
 
   room(){
-    np = get_random_int()%4 + 1; 
+    np = get_random_nat()%4 + 1; 
   }
 };
 
