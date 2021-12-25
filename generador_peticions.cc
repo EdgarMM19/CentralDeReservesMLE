@@ -1,47 +1,57 @@
 #include <iostream>
 #include <fstream>
-#include <stdlib.h> 
+#include <random>
+#include <chrono>
 using namespace std;
 
-  struct booking{
-    int np;
-    int arrival;
-    int exit;
+ 
+int get_random_int(){
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    mt19937 gen(seed);
+    uniform_int_distribution<std::mt19937::result_type> dist;
+ 
+    return dist(gen);
+}
 
 
-    booking(int a, int b, int c){
-      np = a;
-      arrival = b;
-      exit = c;
-    }
-
-    booking(){
-      np = rand()%4 + 1;
-      arrival = rand()%29 + 1;
-      exit = rand()%(30-arrival) + arrival + 1;
-    }
-  };
-
-  struct room{
-    int np;
-
-    room(int a){
-      np = a;
-    }
-
-    room(){
-      np = rand()%4 + 1; 
-    }
-  };
-
-int nr,nb;
+struct booking{
+  int np;
+  int arrival;
+  int exit;
 
 
+  booking(int a, int b, int c){
+    np = a;
+    arrival = b;
+    exit = c;
+  }
+
+  booking(){
+    np = get_random_int()%4 + 1;
+    arrival = get_random_int()%29 + 1;
+    exit = get_random_int()%(30-arrival) + arrival + 1;
+  }
+};
+
+struct room{
+  int np;
+
+  room(int a){
+    np = a;
+  }
+
+  room(){
+    np = get_random_int()%4 + 1; 
+  }
+};
+
+ofstream myfile;
+int ext,nr,nb;
+int m0 = 10, m1 = 80, m2 = 120, m3 = 120;
 
 
-void generate_problem(){
-  ofstream myfile;
-  myfile.open ("problema.pddl");
+
+void generate_problem_equal(){
   myfile << "(define (problem problema-h"<< nr << "-r" << nb << ")" << endl;
   myfile << "   (:domain reserves)" << endl;
   myfile << "   (:objects";
@@ -58,6 +68,7 @@ void generate_problem(){
     room r = room();
     myfile << "         (= (capacitat hab" << i << ") " << r.np << ")" << endl;
     myfile << "         (= (ultim-dia-ocupat hab" << i << ") 0)" << endl;
+    myfile << endl;
   }
   myfile << endl;
   for(int i = 0; i < nb; ++i){
@@ -67,26 +78,69 @@ void generate_problem(){
     myfile << "         (= (final res" << i << ") " << b.exit << ")" << endl;
     myfile << endl;
   }
+}
+
+void generate_problem_1(){
   myfile << "         (= (reserves-satisfetes) 0)" << endl;
   myfile << endl;
   myfile << "   )" << endl;
   myfile << endl;
-  myfile << "   (:goal  (forall (?res - reserva) (procesada ?res)))" << endl;
+  myfile << "   (:goal (forall (?res - reserva) (procesada ?res)))" << endl;
   myfile << endl;
   myfile << "   (:metric maximize (reserves-satisfetes))" << endl;
-  myfile << endl;
-  myfile << ")";
-  myfile.close();
+  myfile << ")" << endl;
+}
 
+void generate_problem_3(){
+  myfile << "         (= (reserves-no-satisfetes) 0)" << endl;
+  myfile << "         (= (desperdici-places) 0)" << endl;
+  myfile << endl;
+  myfile << "   )" << endl;
+  myfile << endl;
+  myfile << "   (:goal (forall (?res - reserva) (procesada ?res)))" << endl;
+  myfile << endl;
+  myfile << "   (:metric minimize (+ (* " << m0 <<" (reserves-no-satisfetes)) (desperdici-places) ))" << endl;
+  myfile << ")" << endl;
+}
+
+void generate_problem_4(){
+  myfile << "         (= (reserves-no-satisfetes) 0)" << endl;
+  myfile << "         (= (habitacions-obertes) 0)" << endl;
+  myfile << "         (= (desperdici-places) 0)" << endl;
+  myfile << endl;
+  for(int i = 0; i < nr; ++i){
+    myfile << "         (decidir hab" << i << ")" << endl;
+  }
+  myfile << "   )" << endl;
+  myfile << endl;
+  myfile << "   (:goal  (and (forall (?res - reserva) (procesada ?res)) (forall (?res - habitacio) (not (decidir ?res) ))))" << endl;
+  myfile << endl;
+  myfile << "   (:metric minimize (+ (+ (* " << m1 << " (reserves-no-satisfetes)) (desperdici-places)) (* " << m2 << " (habitacions-obertes))))" << endl;
+  myfile << "   ;(:metric minimize (+ (* " << m3 << " (reserves-no-satisfetes)) (desperdici-places)))" << endl;
+  myfile << ")" << endl;
 }
 
 
 int main () {
-
   cout << "Quantes habitacions vols que tingui el problema?" << endl;
   cin >> nr;
   cout << "Quantes reserves vols que tingui el problema?" << endl;
   cin >> nb;
-  generate_problem();
+  cout << "Quina extensio vols usar? (1,3,4)" << endl;
+  cin >> ext;
+  if(ext == 1 or ext == 3 or ext == 4){
+    myfile.open ("problema-ext" + to_string(ext) + "-" + to_string(nr) + "-" + to_string(nb) + ".pddl");
+    generate_problem_equal();
+    if(ext == 1){
+      generate_problem_1();
+    } else if(ext == 3){
+      generate_problem_3();
+    } else{
+      generate_problem_4();
+    }
+    myfile.close();
+  } else{
+    cout << "El numero de l'extensio es incorrecte." << endl;
+  }
 
 }
