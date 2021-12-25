@@ -81,9 +81,11 @@ void generate_problem_4(){
   myfile << "         (= (habitacions-obertes) 0)" << endl;
   myfile << "         (= (desperdici-places) 0)" << endl;
   myfile << endl;
+  
   for(int i = 0; i < nr; ++i){
     myfile << "         (decidir hab" << i << ")" << endl;
   }
+
   myfile << "   )" << endl;
   myfile << endl;
   myfile << "   (:goal  (and (forall (?res - reserva) (procesada ?res)) (forall (?res - habitacio) (not (decidir ?res) ))))" << endl;
@@ -94,19 +96,25 @@ void generate_problem_4(){
 }
 
 void generate_problem(){
+
   myfile.open ("problema-ext" + to_string(ext) + "-" + to_string(nr) + "-" + to_string(nb) + ".pddl");
   myfile << "(define (problem problema-h"<< nr << "-r" << nb << ")" << endl;
   myfile << "   (:domain reserves)" << endl;
   myfile << "   (:objects";
+
   for(int i = 0; i < nr; ++i){
     myfile <<" hab" << i;
   }
+
   myfile << " - habitacio" << endl << "            ";
+
   for(int i = 0; i < nb; ++i){
     myfile <<" res" << i;
   }
+
   myfile << " - reserva)" << endl;
   myfile << "   (:init" << endl;
+
   for(int i = 0; i < nr; ++i){
     room r = room();
     myfile << "         (= (capacitat hab" << i << ") " << r.np << ")" << endl;
@@ -114,6 +122,7 @@ void generate_problem(){
     myfile << endl;
   }
   myfile << endl;
+
   for(int i = 0; i < nb; ++i){
     booking b = booking();
     myfile << "         (= (persones res" << i << ") " << b.np << ")" << endl;
@@ -121,24 +130,27 @@ void generate_problem(){
     myfile << "         (= (final res" << i << ") " << b.exit << ")" << endl;
     myfile << endl;
   }
+
   if(ext == 1){
-      generate_problem_1();
-    } else if(ext == 3){
-      generate_problem_3();
-    } else{
-      generate_problem_4();
-    }
-    myfile.close();
+    generate_problem_1();
+  } else if(ext == 3){
+    generate_problem_3();
+  } else{
+    generate_problem_4();
+  }
+  myfile.close();
 }
 
 
 int main () {
+
   cout << "Quantes habitacions vols que tingui el problema?" << endl;
   cin >> nr;
   cout << "Quantes reserves vols que tingui el problema?" << endl;
   cin >> nb;
   cout << "Quina extensio vols usar? (1,3,4)" << endl;
   cin >> ext;
+
   if(ext == 1 or ext == 3 or ext == 4){
     generate_problem();
   } else{
