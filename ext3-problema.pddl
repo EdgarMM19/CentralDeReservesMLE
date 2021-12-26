@@ -18,10 +18,10 @@
          (= (final res2) 30)
 
          (= (reserves-no-satisfetes) 0)
-         (= (desperdici-places) 0)
+         (= (desaprofitament-places) 0)
   )
 
-  (:goal (forall (?res - reserva) (procesada ?res)))
+  (:goal (forall (?res - reserva) (processada ?res)))
 
-  (:metric minimize (+ (* 10 (reserves-no-satisfetes)) (desperdici-places)))
+  (:metric minimize (+ (* 10 (reserves-no-satisfetes)) (desaprofitament-places)))
 )

@@ -30,7 +30,7 @@
 
          (= (reserves-no-satisfetes) 0)
          (= (habitacions-obertes) 0)
-         (= (desperdici-places) 0)
+         (= (desaprofitament-places) 0)
 
          (decidir hab1)
          (decidir hab2)
@@ -38,8 +38,8 @@
          (decidir hab4)
   )
 
-  (:goal (and (forall (?res - reserva) (procesada ?res)) (forall (?res - habitacio) (not (decidir ?res)))))
+  (:goal (and (forall (?res - reserva) (processada ?res)) (forall (?res - habitacio) (not (decidir ?res)))))
 
-  (:metric minimize (+ (+ (* 80 (reserves-no-satisfetes)) (desperdici-places)) (* 120 (habitacions-obertes))))
-  ; (:metric minimize (+ (* 120 (reserves-no-satisfetes)) (desperdici-places)))
+  (:metric minimize (+ (+ (* 80 (reserves-no-satisfetes)) (desaprofitament-places)) (* 120 (habitacions-obertes))))
+  ; (:metric minimize (+ (* 120 (reserves-no-satisfetes)) (desaprofitament-places)))
 )
