@@ -1,8 +1,6 @@
 (define (domain reserves)
   (:requirements :strips :typing :adl :equality :fluents)
-  (:types
-    habitacio reserva
-  )
+  (:types habitacio reserva)
 
   (:predicates
     (procesada ?reserva - reserva)
@@ -32,7 +30,7 @@
       (increase (reserves-satisfetes) 1)
     )
   )
-  
+
   (:action pasar
     :parameters (?res - reserva)
     :precondition (not (procesada ?res))
