@@ -8,7 +8,7 @@
 
   (:functions
     (capacitat ?hab - habitacio)
-    (ultim-dia-ocupat ?hab - habitacio)
+    (ultim-dia-ocupada ?hab - habitacio)
     (persones ?res - reserva)
     (principi ?res - reserva)
     (final ?res - reserva)
@@ -16,21 +16,21 @@
     (desaprofitament-places)
   )
 
-  (:action a-reservar
+  (:action reservar
     :parameters (?res - reserva ?hab - habitacio)
     :precondition (and 
       (not (processada ?res))
       (>= (capacitat ?hab) (persones ?res))
-      (> (principi ?res) (ultim-dia-ocupat ?hab))
+      (> (principi ?res) (ultim-dia-ocupada ?hab))
     )
     :effect (and
       (processada ?res)
-      (increase (ultim-dia-ocupat ?hab) (- (final ?res) (ultim-dia-ocupat ?hab)))
+      (increase (ultim-dia-ocupada ?hab) (- (final ?res) (ultim-dia-ocupada ?hab)))
       (increase (desaprofitament-places) (* (- (+ 1 (final ?res)) (principi ?res)) (- (capacitat ?hab) (persones ?res))))
     )  
   )
 
-  (:action pasar
+  (:action passar
     :parameters (?res - reserva)
     :precondition (not (processada ?res))
     :effect (and 

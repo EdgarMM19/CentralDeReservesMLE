@@ -1,16 +1,16 @@
-(define (problem reserves-habitacions-basic)
+(define (problem reserves-habitacions)
   (:domain reserves)
   (:objects hab1 hab2 hab3 hab4 - habitacio
             res1 res2 res3 res4 - reserva)
   (:init (= (capacitat hab1) 1)
-         (= (ultim-dia-ocupat hab1) 0)
+         (= (ultim-dia-ocupada hab1) 0)
 
          (= (capacitat hab2) 2)
-         (= (ultim-dia-ocupat hab2) 0)
+         (= (ultim-dia-ocupada hab2) 0)
          (= (capacitat hab3) 3)
-         (= (ultim-dia-ocupat hab3) 0)
+         (= (ultim-dia-ocupada hab3) 0)
          (= (capacitat hab4) 4)
-         (= (ultim-dia-ocupat hab4) 0)
+         (= (ultim-dia-ocupada hab4) 0)
 
          (= (persones res1) 1)
          (= (principi res1) 1)
