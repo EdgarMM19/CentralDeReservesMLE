@@ -1,11 +1,13 @@
 (define (domain reserves)
   (:requirements :strips :typing :adl :equality :fluents)
   (:types habitacio reserva)
+
   (:predicates 
     (procesada ?reserva - reserva)
     (decidir ?habitacio - habitacio)
     (oberta ?habitacio - habitacio)
   )
+
   (:functions
     (capacitat ?hab - habitacio)
     (ultim-dia-ocupat ?hab - habitacio)
@@ -16,6 +18,7 @@
     (desperdici-places)
     (habitacions-obertes)
   )
+
   (:action a-reservar
     :parameters (?res - reserva ?hab - habitacio)
     :precondition (and 
@@ -30,6 +33,7 @@
       (increase (desperdici-places) (* (- (+ 1 (final ?res)) (principi ?res)) (- (capacitat ?hab) (persones ?res))))
     )  
   )
+
   (:action pasar
     :parameters (?res - reserva)
     :precondition ( not (procesada ?res) )
@@ -38,11 +42,13 @@
       (increase (reserves-no-satisfetes) 1) 
     )
   )
+
   (:action tancar-hab
     :parameters (?hab - habitacio)
     :precondition (decidir ?hab)
     :effect (and (not (decidir ?hab)))
   )
+  
   (:action obrir-hab
     :parameters (?hab - habitacio)
     :precondition (decidir ?hab)

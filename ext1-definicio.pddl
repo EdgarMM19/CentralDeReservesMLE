@@ -3,9 +3,11 @@
   (:types
     habitacio reserva
   )
+
   (:predicates
     (procesada ?reserva - reserva)
   )
+
   (:functions
     (capacitat ?hab - habitacio)
     (ultim-dia-ocupat ?hab - habitacio)
@@ -14,6 +16,7 @@
     (final ?res - reserva)
     (reserves-satisfetes)
   )
+
   (:action a-reservar
     :parameters (?res - reserva ?hab - habitacio)
     :precondition (and
@@ -29,6 +32,7 @@
       (increase (reserves-satisfetes) 1)
     )
   )
+  
   (:action pasar
     :parameters (?res - reserva)
     :precondition (not (procesada ?res))
