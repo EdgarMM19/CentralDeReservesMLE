@@ -4,7 +4,7 @@
 
   (:predicates 
     (processada ?reserva - reserva)
-    (decidir ?habitacio - habitacio)
+    (decidida ?habitacio - habitacio)
     (oberta ?habitacio - habitacio)
   )
 
@@ -45,13 +45,13 @@
 
   (:action tancar-hab
     :parameters (?hab - habitacio)
-    :precondition (decidir ?hab)
-    :effect (and (not (decidir ?hab)))
+    :precondition (decidida ?hab)
+    :effect (and (not (decidida ?hab)))
   )
 
   (:action obrir-hab
     :parameters (?hab - habitacio)
-    :precondition (decidir ?hab)
-    :effect (and (oberta ?hab) (not (decidir ?hab)) (increase (habitacions-obertes) 1))
+    :precondition (decidida ?hab)
+    :effect (and (oberta ?hab) (not (decidida ?hab)) (increase (habitacions-obertes) 1))
   )
 )
