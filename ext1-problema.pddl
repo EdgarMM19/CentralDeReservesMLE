@@ -39,6 +39,7 @@
 
          (= (reserves-satisfetes) 0)
   )
+  
   (:goal (forall (?res - reserva) (processada ?res)))
   
   (:metric maximize (reserves-satisfetes))
