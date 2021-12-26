@@ -38,11 +38,8 @@
          (= (final res6) 30)
 
          (= (reserves-satisfetes) 0)
-
   )
-
   (:goal (forall (?res - reserva) (procesada ?res)))
-
+  
   (:metric maximize (reserves-satisfetes))
-
 )

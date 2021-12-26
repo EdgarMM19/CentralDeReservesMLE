@@ -19,10 +19,9 @@
 
          (= (reserves-no-satisfetes) 0)
          (= (desperdici-places) 0)
-
   )
 
   (:goal (forall (?res - reserva) (procesada ?res)))
 
-  (:metric minimize (+ (* 10 (reserves-no-satisfetes)) (desperdici-places) ))
+  (:metric minimize (+ (* 10 (reserves-no-satisfetes)) (desperdici-places)))
 )

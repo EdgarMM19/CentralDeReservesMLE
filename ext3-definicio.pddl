@@ -4,7 +4,6 @@
   (:predicates 
     (procesada ?reserva - reserva)
   )
-
   (:functions
     (capacitat ?hab - habitacio)
     (ultim-dia-ocupat ?hab - habitacio)
@@ -14,14 +13,13 @@
     (reserves-no-satisfetes)
     (desperdici-places)
   )
-
   (:action a-reservar
     :parameters (?res - reserva ?hab - habitacio)
     :precondition (and 
-        (not (procesada ?res))
-        (>= (capacitat ?hab) (persones ?res))
-        (> (principi ?res) (ultim-dia-ocupat ?hab))
-      )
+      (not (procesada ?res))
+      (>= (capacitat ?hab) (persones ?res))
+      (> (principi ?res) (ultim-dia-ocupat ?hab))
+    )
     :effect (and
       (procesada ?res)
       (increase (ultim-dia-ocupat ?hab) (- (final ?res) (ultim-dia-ocupat ?hab)))
@@ -30,10 +28,10 @@
   )
   (:action pasar
     :parameters (?res - reserva)
-    :precondition ( not (procesada ?res) )
-    :effect (and ( procesada ?res )  
-            (increase (reserves-no-satisfetes) 1) 
+    :precondition (not (procesada ?res))
+    :effect (and 
+      (procesada ?res)
+      (increase (reserves-no-satisfetes) 1) 
+    )
   )
-  )
-
- )
+)
