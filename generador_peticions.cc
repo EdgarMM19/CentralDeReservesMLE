@@ -14,7 +14,7 @@ int get_random_nat() {
     return n;
 }
 
-struct booking{
+struct booking {
   int np;
   int arrival;
   int exit;
@@ -32,7 +32,7 @@ struct booking{
   }
 };
 
-struct room{
+struct room {
   int np;
 
   room(int a) {
