@@ -24,9 +24,7 @@
     )
     :effect (and
       (processada ?res)
-      (increase
-        (ultim-dia-ocupada ?hab)
-        (- (final ?res) (ultim-dia-ocupada ?hab)))
+      (increase (ultim-dia-ocupada ?hab) (- (final ?res) (ultim-dia-ocupada ?hab)))
       (increase (reserves-satisfetes) 1)
     )
   )
