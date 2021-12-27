@@ -53,7 +53,7 @@ void generate_problem_ext1() {
   myfile << endl;
   myfile << "   )" << endl;
   myfile << endl;
-  myfile << "   (:goal (forall (?res - reserva) (procesada ?res)))" << endl;
+  myfile << "   (:goal (forall (?res - reserva) (processada ?res)))" << endl;
   myfile << endl;
   myfile << "   (:metric maximize (reserves-satisfetes))" << endl;
   myfile << ")" << endl;
@@ -61,32 +61,31 @@ void generate_problem_ext1() {
 
 void generate_problem_ext3() {
   myfile << "         (= (reserves-no-satisfetes) 0)" << endl;
-  myfile << "         (= (desperdici-places) 0)" << endl;
+  myfile << "         (= (desaprofitament-places) 0)" << endl;
   myfile << endl;
   myfile << "   )" << endl;
   myfile << endl;
-  myfile << "   (:goal (forall (?res - reserva) (procesada ?res)))" << endl;
+  myfile << "   (:goal (forall (?res - reserva) (processada ?res)))" << endl;
   myfile << endl;
-  myfile << "   (:metric minimize (+ (* " << m0 <<" (reserves-no-satisfetes)) (desperdici-places) ))" << endl;
+  myfile << "   (:metric minimize (+ (* " << m0 <<" (reserves-no-satisfetes)) (desaprofitament-places)))" << endl;
   myfile << ")" << endl;
 }
 
 void generate_problem_ext4() {
   myfile << "         (= (reserves-no-satisfetes) 0)" << endl;
   myfile << "         (= (habitacions-obertes) 0)" << endl;
-  myfile << "         (= (desperdici-places) 0)" << endl;
+  myfile << "         (= (desaprofitament-places) 0)" << endl;
   myfile << endl;
   
   for (int i = 0; i < nr; ++i) {
-    myfile << "         (decidir hab" << i << ")" << endl;
+    myfile << "         (not (decidida hab" << i << "))" << endl;
   }
 
   myfile << "   )" << endl;
   myfile << endl;
-  myfile << "   (:goal  (and (forall (?res - reserva) (procesada ?res)) (forall (?res - habitacio) (not (decidir ?res) ))))" << endl;
+  myfile << "   (:goal  (and (forall (?res - reserva) (processada ?res)) (forall (?res - habitacio) (decidida ?res))))" << endl;
   myfile << endl;
-  myfile << "   (:metric minimize (+ (+ (* " << m1 << " (reserves-no-satisfetes)) (desperdici-places)) (* " << m2 << " (habitacions-obertes))))" << endl;
-  myfile << "   ;(:metric minimize (+ (* " << m3 << " (reserves-no-satisfetes)) (desperdici-places)))" << endl;
+  myfile << "   (:metric minimize (+ (+ (* " << m1 << " (reserves-no-satisfetes)) (desaprofitament-places)) (* " << m2 << " (habitacions-obertes))))" << endl;
   myfile << ")" << endl;
 }
 
@@ -113,7 +112,7 @@ void generate_problem() {
   for (int i = 0; i < nr; ++i) {
     room r = room();
     myfile << "         (= (capacitat hab" << i << ") " << r.np << ")" << endl;
-    myfile << "         (= (ultim-dia-ocupat hab" << i << ") 0)" << endl;
+    myfile << "         (= (ultim-dia-ocupada hab" << i << ") 0)" << endl;
     myfile << endl;
   }
   myfile << endl;
