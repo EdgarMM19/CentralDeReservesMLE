@@ -45,7 +45,7 @@ struct room {
 };
 
 int ext,nr,nb;
-int m0 = 10, m1 = 80, m2 = 120, m3 = 120;
+int m0 = 10, m1 = 1, m2 = 80, m3 = 1, m4 = 120;
 ofstream myfile;
 
 void generate_problem_ext1() {
@@ -67,7 +67,7 @@ void generate_problem_ext3() {
   myfile << endl;
   myfile << "   (:goal (forall (?res - reserva) (processada ?res)))" << endl;
   myfile << endl;
-  myfile << "   (:metric minimize (+ (* " << m0 <<" (reserves-no-satisfetes)) (desaprofitament-places)))" << endl;
+  myfile << "   (:metric minimize (+ (* " << m0 <<" (reserves-no-satisfetes)) (* " << m1 <<" (desaprofitament-places))))" << endl;
   myfile << ")" << endl;
 }
 
@@ -85,7 +85,7 @@ void generate_problem_ext4() {
   myfile << endl;
   myfile << "   (:goal  (and (forall (?res - reserva) (processada ?res)) (forall (?res - habitacio) (decidida ?res))))" << endl;
   myfile << endl;
-  myfile << "   (:metric minimize (+ (+ (* " << m1 << " (reserves-no-satisfetes)) (desaprofitament-places)) (* " << m2 << " (habitacions-obertes))))" << endl;
+  myfile << "   (:metric minimize (+ (+ (* " << m2 << " (reserves-no-satisfetes)) (* " << m3 << " (desaprofitament-places))) (* " << m4 << " (habitacions-obertes))))" << endl;
   myfile << ")" << endl;
 }
 
@@ -145,6 +145,19 @@ int main () {
   cin >> ext;
 
   if (ext == 1 or ext == 3 or ext == 4) {
+    if (ext == 3) {
+      cout << "Quina ponderacio vols que tingui el nombre de reserves no satisfetes?" << endl;
+      cin >> m0;
+      cout << "Quina ponderacio vols que tingui el desaprofitament de places?" << endl;
+      cin >> m1;
+    } else if (ext == 4) {
+      cout << "Quina ponderacio vols que tingui el nombre de reserves no satisfetes?" << endl;
+      cin >> m2;
+      cout << "Quina ponderacio vols que tingui el desaprofitament de places?" << endl;
+      cin >> m3;
+      cout << "Quina ponderacio vols que tingui el nombre d'habitacions obertes?" << endl;
+      cin >> m4;
+    }
     generate_problem();
   } else {
     cout << "El numero de l'extensio es incorrecte." << endl;
