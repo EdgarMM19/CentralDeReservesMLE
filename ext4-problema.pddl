@@ -7,8 +7,10 @@
 
          (= (capacitat hab2) 2)
          (= (ultim-dia-ocupada hab2) 0)
+
          (= (capacitat hab3) 3)
          (= (ultim-dia-ocupada hab3) 0)
+         
          (= (capacitat hab4) 4)
          (= (ultim-dia-ocupada hab4) 0)
 

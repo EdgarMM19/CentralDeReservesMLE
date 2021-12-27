@@ -7,8 +7,10 @@
 
          (= (capacitat hab2) 2)
          (= (ultim-dia-ocupada hab2) 0)
+
          (= (capacitat hab3) 3)
          (= (ultim-dia-ocupada hab3) 0)
+
          (= (capacitat hab4) 4)
          (= (ultim-dia-ocupada hab4) 0)
 
@@ -32,14 +34,13 @@
          (= (principi res5) 16)
          (= (final res5) 19)
 
-
          (= (persones res6) 4)
          (= (principi res6) 1)
          (= (final res6) 30)
 
          (= (reserves-satisfetes) 0)
   )
-  
+
   (:goal (forall (?res - reserva) (processada ?res)))
   
   (:metric maximize (reserves-satisfetes))

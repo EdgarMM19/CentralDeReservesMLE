@@ -4,8 +4,10 @@
             res1 res2 - reserva)
   (:init (= (capacitat hab1) 4)
          (= (ultim-dia-ocupada hab1) 0)
+
          (= (capacitat hab2) 1)
          (= (ultim-dia-ocupada hab2) 0)
+         
          (= (capacitat hab3) 4)
          (= (ultim-dia-ocupada hab3) 0)
 
