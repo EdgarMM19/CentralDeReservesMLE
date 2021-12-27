@@ -43,15 +43,15 @@
     )
   )
 
-  (:action tancar-habitacio
-    :parameters (?hab - habitacio)
-    :precondition (not (decidida ?hab))
-    :effect (decidida ?hab)
-  )
-
   (:action obrir-habitacio
     :parameters (?hab - habitacio)
     :precondition (not (decidida ?hab))
     :effect (and (oberta ?hab) (decidida ?hab) (increase (habitacions-obertes) 1))
+  )
+
+  (:action tancar-habitacio
+    :parameters (?hab - habitacio)
+    :precondition (not (decidida ?hab))
+    :effect (decidida ?hab)
   )
 )
