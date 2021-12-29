@@ -18,7 +18,7 @@
     (desaprofitament-places)
     (habitacions-obertes)
   )
-
+  
   (:action reservar
     :parameters (?res - reserva ?hab - habitacio)
     :precondition (and 
@@ -49,7 +49,7 @@
     :effect (and (oberta ?hab) (decidida ?hab) (increase (habitacions-obertes) 1))
   )
 
-  (:action tancar-habitacio
+  (:action tancar-habitacio 
     :parameters (?hab - habitacio)
     :precondition (not (decidida ?hab))
     :effect (decidida ?hab)
