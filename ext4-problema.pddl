@@ -2,7 +2,8 @@
   (:domain reserves)
   (:objects hab1 hab2 hab3 hab4 - habitacio
             res1 res2 res3 res4 - reserva)
-  (:init (= (capacitat hab1) 1)
+  (:init 
+         (= (capacitat hab1) 1)
          (= (ultim-dia-ocupada hab1) 0)
 
          (= (capacitat hab2) 2)
@@ -33,14 +34,9 @@
          (= (reserves-no-satisfetes) 0)
          (= (habitacions-obertes) 0)
          (= (desaprofitament-places) 0)
-
-         (not (decidida hab1))
-         (not (decidida hab2))
-         (not (decidida hab3))
-         (not (decidida hab4))
   )
 
-  (:goal (and (forall (?res - reserva) (processada ?res)) (forall (?res - habitacio) (decidida ?res))))
+  (:goal (and (forall (?res - reserva) (processada ?res)) (forall (?hab - habitacio) (decidida ?hab))))
 
   (:metric minimize (+ (+ (* 80 (reserves-no-satisfetes)) (desaprofitament-places)) (* 120 (habitacions-obertes))))
 )
