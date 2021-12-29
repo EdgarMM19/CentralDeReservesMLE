@@ -1,0 +1,15 @@
+(define (problem problema-h1-r1)
+   (:domain reserves)
+   (:objects hab0 - habitacio
+             res0 - reserva)
+   (:init
+         (= (capacitat hab0) 4)
+         (= (ultim-dia-ocupada hab0) 0)
+         (= (persones res0) 4)
+         (= (principi res0) 7)
+         (= (final res0) 15)
+         (= (reserves-satisfetes) 0)
+   )
+   (:goal (forall (?res - reserva) (processada ?res)))
+   (:metric maximize (reserves-satisfetes))
+)
