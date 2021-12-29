@@ -69,10 +69,6 @@ void generate_problem_ext4() {
   myfile << "         (= (reserves-no-satisfetes) 0)" << endl;
   myfile << "         (= (habitacions-obertes) 0)" << endl;
   myfile << "         (= (desaprofitament-places) 0)" << endl;
-  
-  for (int i = 0; i < nr; ++i) {
-    myfile << "         (not (decidida hab" << i << "))" << endl;
-  }
 
   myfile << "   )" << endl;
   myfile << "   (:goal  (and (forall (?res - reserva) (processada ?res)) (forall (?res - habitacio) (decidida ?res))))" << endl;

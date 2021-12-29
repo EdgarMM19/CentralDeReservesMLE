@@ -76,10 +76,6 @@ void generate_problem_ext4() {
   myfile << "         (= (habitacions-obertes) 0)" << endl;
   myfile << "         (= (desaprofitament-places) 0)" << endl;
   myfile << endl;
-  
-  for (int i = 0; i < nr; ++i) {
-    myfile << "         (not (decidida hab" << i << "))" << endl;
-  }
 
   myfile << "   )" << endl;
   myfile << endl;
