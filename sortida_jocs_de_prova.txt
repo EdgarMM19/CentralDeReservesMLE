@@ -1,0 +1,450 @@
+***************************************    JOC DE PROVA EXT1-1    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H1-R6' defined
+ ... done.
+
+
+warning: change on metric in wrong direction. metric replaced with plan length.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:    6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: RESERVAR RES0 HAB0
+        1: RESERVAR RES1 HAB0
+        2: RESERVAR RES2 HAB0
+        3: PASSAR RES5
+        4: PASSAR RES4
+        5: PASSAR RES3
+     
+
+time spent:    0.01 seconds instantiating 12 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 12 facts and 12 actions
+               0.00 seconds creating final representation with 12 relevant facts, 4 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 32 states, to a max depth of 0
+               0.02 seconds total time
+
+***************************************    JOC DE PROVA EXT1-2    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H5-R10' defined
+ ... done.
+
+
+warning: change on metric in wrong direction. metric replaced with plan length.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+advancing to distance:   10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: RESERVAR RES0 HAB0
+        1: RESERVAR RES3 HAB1
+        2: RESERVAR RES8 HAB3
+        3: RESERVAR RES2 HAB4
+        4: RESERVAR RES7 HAB4
+        5: RESERVAR RES1 HAB2
+        6: PASSAR RES9
+        7: PASSAR RES6
+        8: PASSAR RES5
+        9: PASSAR RES4
+     
+
+time spent:    0.01 seconds instantiating 60 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 20 facts and 34 actions
+               0.00 seconds creating final representation with 20 relevant facts, 12 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 130 states, to a max depth of 0
+               0.02 seconds total time
+
+***************************************    JOC DE PROVA EXT3-1.1    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H1-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF1](RESERVES-NO-SATISFETES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF1](RESERVES-NO-SATISFETES)) - () + 0.00)
+
+advancing to distance:    6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: RESERVAR RES0 HAB0
+        1: RESERVAR RES1 HAB0
+        2: RESERVAR RES2 HAB0
+        3: PASSAR RES5
+        4: PASSAR RES4
+        5: PASSAR RES3
+     
+
+time spent:    0.01 seconds instantiating 12 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 12 facts and 12 actions
+               0.00 seconds creating final representation with 12 relevant facts, 4 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 32 states, to a max depth of 0
+               0.02 seconds total time
+
+***************************************    JOC DE PROVA EXT3-1.2    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H1-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF1](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF1](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)) - () + 0.00)
+
+advancing to distance:    6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: RESERVAR RES0 HAB0
+        1: RESERVAR RES4 HAB0
+        2: PASSAR RES5
+        3: PASSAR RES3
+        4: PASSAR RES2
+        5: PASSAR RES1
+     
+
+time spent:    0.02 seconds instantiating 12 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 12 facts and 12 actions
+               0.00 seconds creating final representation with 12 relevant facts, 4 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.01 seconds searching, evaluating 31 states, to a max depth of 0
+               0.03 seconds total time
+
+***************************************    JOC DE PROVA EXT3-2.1    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H3-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((10.00*[RF1](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((10.00*[RF1](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)) - () + 0.00)
+
+advancing to distance:    6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: RESERVAR RES1 HAB2
+        1: RESERVAR RES3 HAB2
+        2: RESERVAR RES0 HAB1
+        3: RESERVAR RES5 HAB1
+        4: RESERVAR RES4 HAB0
+        5: PASSAR RES2
+     
+
+time spent:    0.03 seconds instantiating 24 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 12 facts and 20 actions
+               0.00 seconds creating final representation with 12 relevant facts, 8 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.01 seconds searching, evaluating 59 states, to a max depth of 0
+               0.04 seconds total time
+
+***************************************    JOC DE PROVA EXT3-2.2    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H3-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF1](RESERVES-NO-SATISFETES)10.00*[RF0](DESAPROFITAMENT-PLACES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF1](RESERVES-NO-SATISFETES)10.00*[RF0](DESAPROFITAMENT-PLACES)) - () + 0.00)
+
+advancing to distance:    6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: RESERVAR RES1 HAB2
+        1: RESERVAR RES3 HAB2
+        2: RESERVAR RES0 HAB1
+        3: RESERVAR RES5 HAB1
+        4: PASSAR RES4
+        5: PASSAR RES2
+     
+
+time spent:    0.01 seconds instantiating 24 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 12 facts and 20 actions
+               0.00 seconds creating final representation with 12 relevant facts, 8 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 60 states, to a max depth of 0
+               0.02 seconds total time
+
+***************************************    JOC DE PROVA EXT4-1.1    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H1-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF2](RESERVES-NO-SATISFETES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF2](RESERVES-NO-SATISFETES)) - () + 0.00)
+
+advancing to distance:    7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: OBRIR-HABITACIO HAB0
+        1: PASSAR RES5
+        2: PASSAR RES3
+        3: RESERVAR RES0 HAB0
+        4: PASSAR RES4
+        5: RESERVAR RES1 HAB0
+        6: RESERVAR RES2 HAB0
+     
+
+time spent:    0.02 seconds instantiating 14 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 15 facts and 14 actions
+               0.00 seconds creating final representation with 15 relevant facts, 5 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.01 seconds searching, evaluating 158 states, to a max depth of 0
+               0.03 seconds total time
+
+***************************************    JOC DE PROVA EXT4-1.2    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H1-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF2](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)1.00*[RF1](HABITACIONS-OBERTES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF2](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)1.00*[RF1](HABITACIONS-OBERTES)) - () + 0.00)
+
+advancing to distance:    7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: PASSAR RES5
+        1: PASSAR RES4
+        2: PASSAR RES3
+        3: PASSAR RES2
+        4: PASSAR RES1
+        5: OBRIR-HABITACIO HAB0
+        6: RESERVAR RES0 HAB0
+     
+
+time spent:    0.03 seconds instantiating 14 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 15 facts and 14 actions
+               0.00 seconds creating final representation with 15 relevant facts, 5 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.01 seconds searching, evaluating 36 states, to a max depth of 0
+               0.04 seconds total time
+
+***************************************    JOC DE PROVA EXT4-1.3    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H1-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((10.00*[RF2](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)1.00*[RF1](HABITACIONS-OBERTES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((10.00*[RF2](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)1.00*[RF1](HABITACIONS-OBERTES)) - () + 0.00)
+
+advancing to distance:    7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: OBRIR-HABITACIO HAB0
+        1: PASSAR RES5
+        2: PASSAR RES2
+        3: PASSAR RES1
+        4: PASSAR RES3
+        5: RESERVAR RES0 HAB0
+        6: RESERVAR RES4 HAB0
+     
+
+time spent:    0.01 seconds instantiating 14 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 15 facts and 14 actions
+               0.00 seconds creating final representation with 15 relevant facts, 5 relevant fluents
+               0.01 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 54 states, to a max depth of 0
+               0.02 seconds total time
+
+***************************************    JOC DE PROVA EXT4-2    ***************************************
+
+ff: parsing domain file
+domain 'RESERVES' defined
+ ... done.
+ff: parsing problem file
+problem 'PROBLEMA-H3-R6' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((10.00*[RF2](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)5.00*[RF1](HABITACIONS-OBERTES)) - () + 0.00)
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((10.00*[RF2](RESERVES-NO-SATISFETES)1.00*[RF0](DESAPROFITAMENT-PLACES)5.00*[RF1](HABITACIONS-OBERTES)) - () + 0.00)
+
+advancing to distance:    9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: OBRIR-HABITACIO HAB0
+        1: OBRIR-HABITACIO HAB2
+        2: PASSAR RES4
+        3: PASSAR RES2
+        4: TANCAR-HABITACIO HAB1
+        5: PASSAR RES3
+        6: RESERVAR RES0 HAB0
+        7: RESERVAR RES5 HAB2
+        8: RESERVAR RES1 HAB2
+     
+
+time spent:    0.02 seconds instantiating 30 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 21 facts and 23 actions
+               0.00 seconds creating final representation with 21 relevant facts, 9 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.01 seconds searching, evaluating 126 states, to a max depth of 0
+               0.03 seconds total time
+
