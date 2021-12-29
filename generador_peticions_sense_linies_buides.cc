@@ -71,7 +71,7 @@ void generate_problem_ext4() {
   myfile << "         (= (desaprofitament-places) 0)" << endl;
 
   myfile << "   )" << endl;
-  myfile << "   (:goal  (and (forall (?res - reserva) (processada ?res)) (forall (?res - habitacio) (decidida ?res))))" << endl;
+  myfile << "   (:goal  (and (forall (?res - reserva) (processada ?res)) (forall (?hab - habitacio) (decidida ?hab))))" << endl;
   myfile << "   (:metric minimize (+ (+ (* " << m2 << " (reserves-no-satisfetes)) (* " << m3 << " (desaprofitament-places))) (* " << m4 << " (habitacions-obertes))))" << endl;
   myfile << ")" << endl;
 }
